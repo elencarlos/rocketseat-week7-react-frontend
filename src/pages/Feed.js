@@ -21,7 +21,7 @@ class Feed extends Component {
    }
 
    registerToSocket = () => {
-      const socket = io("http://localhost:3333");
+      const socket = io("https://acomapi.herokuapp.com");
 
       socket.on("post", newPost => {
          this.setState({ feed: [newPost, ...this.state.feed] });
@@ -52,7 +52,7 @@ class Feed extends Component {
                      </div>
                      <img src={more} alt="Mais" />
                   </header>
-                  <img src={`http://localhost:3333/files/${post.image}`} />
+                  <img src={`${post.url}`} />
                   <footer>
                      <div className="actions">
                         <button
